@@ -6,6 +6,10 @@ const SearchHistorySchema = new Schema({
   searchPhrase: {
     type: String,
     required: true
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 });
 
