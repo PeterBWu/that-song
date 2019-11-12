@@ -1,38 +1,37 @@
-import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { createBlog } from './../../actions';
+import React, { Component } from "react";
+import { reduxForm, Field } from "redux-form";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { SearchSongByLyrics } from "./../../actions";
 
-import requireAuth from './../../hoc/requireAuth';
+// import requireAuth from './../../hoc/requireAuth';
 
-class CreateBlog extends Component {
+class LandingPage extends Component {
   onSubmit = formValues => {
-    this.props.createBlog(formValues, () => {
-      this.props.history.push('./blogs');
+    this.props.SearchSongByLyrics(formValues, () => {
+      this.props.history.push("./results");
     });
-  }
+  };
 
   render() {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        <label>Content</label>
-        <Field 
-          name='content'
-          type='text'
-          component='textarea'
-          autoComplete='none'
+        <Field
+          name="search"
+          type="text"
+          component="input"
+          autoComplete="none"
         />
-        <button>Create Blog</button>
+        <button>Search</button>
       </form>
-    )
+    );
   }
-};
+}
 
 const formedComponent = compose(
-  connect(null, { createBlog }),
-  reduxForm({ form: 'Create Blog' })
-)(CreateBlog);
+  connect(null, { SearchSongByLyrics }),
+  reduxForm({ form: 'landingPage' })
+)(LandingPage);
 
-export default requireAuth(formedComponent);
+export default formedComponent;
