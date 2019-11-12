@@ -14,16 +14,16 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    blogs: [
+    favoriteSongs: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Blog'
+            ref: 'FavoriteSong'
         }
     ],
-    comments: [
+    searchHistory: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Comment'
+            ref: 'SearchHistory'
         }
     ]
 });
