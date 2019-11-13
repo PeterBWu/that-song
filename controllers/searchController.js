@@ -4,21 +4,26 @@ const keys = require("./../config/dev")
 
 // temporary search parameteres
 const artist = "";
-const lyric = "come as you are";
+// const lyric = "come as you are";
 const lyricSearch = "63189290";
 const trackName = "Come As You Are (In the Style of Nirvana) [Karaoke Version]"
 const artistName = "Ameritz Karaoke Entertainment"
 
 module.exports = {
   getSongs: function (req, res) {
-    axios.get(`http://api.musixmatch.com/ws/1.1/track.search?f_lyrics_language=en&f_has_lyrics=true&q=${lyric}&q_artist=${artist}&q_lyrics=${lyric}&apikey=${musixmatchAPIkey}`)
+    // console.log(req)
+    console.log(req.body)
+    console.log(req.params)
+    const{lyric} = req.params
+
+    axios.get(`http://api.musixmatch.com/ws/1.1/track.search?f_lyrics_language=en&f_has_lyrics=true&q=${lyric}&q_artist=${artist}&q_lyrics=${lyric}&apikey=${keys.musixmatchAPIkey}`)
       .then(function (response) {
         res.json(response.data.message.body.track_list)
       })
       .catch(err => res.json(err))
   },
   getLyrics: function (req, res) {
-    axios.get(`http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${lyricSearch}&apikey=${musixmatchAPIkey}`)
+    axios.get(`http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${lyricSearch}&apikey=${keys.musixmatchAPIkey}`)
       .then(function (response) {
         res.json(response.data.message.body.lyrics)
       })

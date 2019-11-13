@@ -5,18 +5,14 @@ import { infoFromSong } from "../actions";
 import InfoCard from "../components/InfoCard";
 
 class Results extends Component {
-  componentDidMount() {
-    this.props.infoFromSong();
-  }
 
   renderOptions() {
-    console.log(this.props.songs)
     if (this.props.songs.length === 0) {
       return <Loader type="Oval" color="purple" height={100} width={100} />;
     } else {
       return (
         <div>
-          {this.props.songs.map(song => (<InfoCard key={song.id} id={song.id} />))}
+          {this.props.songs.map(song => (<InfoCard key={song.track_id} song={song} />))}
         </div>
       );
     }
@@ -38,5 +34,5 @@ function mapStateToProps({ songs }) {
 
 export default connect(
   mapStateToProps,
-  { infoFromSong }
+  null
 )(Results);

@@ -20,7 +20,7 @@ class LandingPage extends Component {
 
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
-          name="search"
+          name="lyric"
           type="text"
           component="input"
           autoComplete="none"

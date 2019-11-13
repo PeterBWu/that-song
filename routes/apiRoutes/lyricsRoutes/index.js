@@ -8,7 +8,7 @@ const authMiddlewares = require('./../../../middlewares/authMiddlewares');
 
 
 // /api/blogs
-router.route('/search')
+router.route('/search/:lyric/:artist/')
     .get(searchController.getSongs)
 
 router.route('/display')
