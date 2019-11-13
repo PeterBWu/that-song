@@ -6,3 +6,5 @@ export const FETCH_BLOG = 'FETCH_BLOG';
 export const FETCH_BLOGS = 'FETCH_BLOGS';
 export const BLOGS_ERROR = 'BLOGS_ERROR';
 export const CREATE_BLOG = 'CREATE_BLOG';
+export const GET_SONGS = 'GET_SONGS';
+export const GET_SONGS_ERROR = 'GET_SONGS_ERROR';
