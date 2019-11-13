@@ -8,19 +8,19 @@ class Header extends Component {
     renderLinks(){
         if(this.props.auth) {
             return (
-                <div>
+                <div style={{float:"right"}}>
                     <Link to='/counter'>Counter Page</Link>
-                    <Link to='/signout'>Sign Out</Link>
                     <Link to='/blogs'>Blogs</Link>
                     <Link to='/createblog'>Create a Blog</Link>
+                    <Link to='/signout'>Sign Out</Link>
                 </div>
             );
         } else {
             return (
-                <div>
+                <div style={{float:"right"}}>
+                    <Link to='/blogs'>Blogs</Link>
                     <Link to='/signup'>Sign up</Link>
                     <Link to='/signin'>Sign in</Link>
-                    <Link to='/blogs'>Blogs</Link>
                 </div>
             );
         }
@@ -28,8 +28,10 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
-                <Link to='/'>Redux Auth</Link>   
+            <div style={{width:"100%"}}>
+                <div style={{float:"left"}}>
+                <Link to='/'>Redux Auth</Link>
+                </div>
                 {this.renderLinks()}
             </div>
         )

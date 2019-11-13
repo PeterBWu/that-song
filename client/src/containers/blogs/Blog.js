@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { fetchBlog } from './../../actions';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { fetchBlog } from "./../../actions";
+import { connect } from "react-redux";
 
-import Loader from 'react-loader-spinner'
+import Loader from "react-loader-spinner";
 
 class Blog extends Component {
   componentDidMount() {
@@ -10,8 +10,8 @@ class Blog extends Component {
   }
 
   renderBlog = () => {
-    console.log(this.props.blog)
-    if(!this.props.blog.content) {
+    console.log(this.props.blog);
+    if (!this.props.blog.content) {
       return (
         <Loader
           type="Oval"
@@ -24,25 +24,30 @@ class Blog extends Component {
     } else {
       return (
         <div>
-          <h1>Blog Content <span>Author: {this.props.blog.user.email}</span></h1>
+          <h1>
+            Blog Content <span>Author: {this.props.blog.user.email}</span>
+          </h1>
           <h2>{this.props.blog.content}</h2>
         </div>
-      )
+      );
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <h1>This is the Blog detail page</h1>
-        { this.renderBlog() }
+        {this.renderBlog()}
       </div>
-    )
+    );
   }
-};
+}
 
 function mapStateToProps({ blogs }) {
   return { blog: blogs.blog };
 }
 
-export default connect(mapStateToProps, { fetchBlog })(Blog);
+export default connect(
+  mapStateToProps,
+  { fetchBlog }
+)(Blog);
