@@ -32,7 +32,7 @@ module.exports = {
       });
       await song.save();
       req.user.favoriteSongs.push(song)
-      awaitreq.user.save();
+      await req.user.save();
       res.json({ success: true })
     } catch(err) {
       res.status(403).json(err);
