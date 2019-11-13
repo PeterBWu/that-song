@@ -13,13 +13,16 @@ class Header extends Component {
                     <Link to='/blogs'>Search History</Link>
                     <Link to='/createblog'>AccountSettings</Link>
                     <Link to='/signout'>Sign Out</Link>
+
                 </div>
             );
         } else {
             return (
+
                 <div style={{justifyContent:"flex-end"}}>
                     <Link to='/signup'>Sign up</Link>
                     <Link to='/signin'>Sign in</Link>
+
                 </div>
             );
         }
@@ -27,8 +30,10 @@ class Header extends Component {
 
     render() {
         return (
+
             <div style={{width:"100%",display:"flex"}}>
                 <div style={{flex:"auto"}}>
+
                 <Link to='/'>Redux Auth</Link>
                 </div>
                 {this.renderLinks()}

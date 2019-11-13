@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import Counter from './containers/Counter';
-import SignUp from './containers/auth/SignUp';
+import SignUp from './containers/auth/SignUp/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
 import Blog from './containers/blogs/Blog';

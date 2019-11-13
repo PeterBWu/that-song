@@ -7,6 +7,7 @@ const SearchHistorySchema = new Schema({
     type: String,
     required: true
   },
+  songName: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'

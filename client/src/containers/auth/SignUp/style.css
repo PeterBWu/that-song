@@ -1,0 +1,12 @@
+#input_box {
+  background-color: lightgrey;
+  border:  darkgray solid 1px;
+  margin: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+}
+
