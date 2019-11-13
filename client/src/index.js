@@ -11,8 +11,8 @@ import SignUp from './containers/auth/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
 import Blog from './containers/blogs/Blog';
-import Blogs from './containers/blogs/Blogs';
-import CreateBlog from './containers/blogs/CreateBlog';
+import Results from './containers/Results';
+import LandingPage from './containers/LandingPage';
 
 
 import reducers from './reducers';
@@ -29,13 +29,19 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <App>
-                <Route exact path='/signup' component={SignUp} />
-                <Route exact path='/signin' component={SignIn} />
-                <Route exact path='/counter' component={Counter} />   
-                <Route exact path='/signout' component={SignOut}/>                             
-                <Route exact path='/blogs' component={Blogs}/>
-                <Route exact path='/createblog' component={CreateBlog}/>
-                <Route exact path='/blogs/:blogId' component={Blog}/>
+                <Switch>
+                    <Route exact path='/' component={LandingPage}/>
+
+                    <Route exact path='/signup' component={SignUp} />
+                    <Route exact path='/signin' component={SignIn} />
+                    <Route exact path='/signout' component={SignOut}/>           
+
+                    <Route exact path='/counter' component={Counter} />   
+                    <Route exact path='/blogs/:blogId' component={Blog}/>
+
+                    <Route exact path='/results' component={Results}/>
+                    <Route component={LandingPage} />
+                </Switch>
             </App>
         </Router>
     </Provider>

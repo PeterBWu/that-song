@@ -73,12 +73,27 @@ export const createBlog = (blog, callback) => async dispatch => {
   }
 };
 
-export const SearchSongByLyrics = (formProps, callback) => async dispatch => {
+export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {
     console.log(formProps);
     // const firstCall = await axios.get(' our backend A',formProps)
     // const secondCall = await axios.get(' our Backend B', firstCall)
-    const secondCall = { data: ["test", "data"] };
+    const secondCall = { data: [{id:'1234'},{id:'4321'}] };
+    dispatch({ type: types.GET_SONGS, payload: secondCall.data });
+    callback();
+  } catch (e) {
+    dispatch({
+      type: types.GET_SONGS_ERROR,
+      payload: "something went wrong with getting the songs"
+    });
+  }
+};
+export const infoFromSong = (formProps, callback) => async dispatch => {
+  try {
+    console.log(formProps);
+    // const firstCall = await axios.get(' our backend A',formProps)
+    // const secondCall = await axios.get(' our Backend B', firstCall)
+    const secondCall = { data: [{id:'1234'},{id:'4321'}] };
     dispatch({ type: types.GET_SONGS, payload: secondCall.data });
     callback();
   } catch (e) {
