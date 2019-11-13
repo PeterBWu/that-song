@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const authRoutes = require('./authRoutes');
 const blogRoutes = require('./blogRoutes');
 const lyricsRoutes = require('./lyricsRoutes');
@@ -8,6 +7,5 @@ const lyricsRoutes = require('./lyricsRoutes');
 router.use('/auth', authRoutes);
 router.use('/blogs', blogRoutes);
 router.use('/lyrics', lyricsRoutes);
-
 
 module.exports = router;
