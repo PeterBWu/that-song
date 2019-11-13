@@ -17,4 +17,7 @@ router.route('/display')
 router.route('/videoInfo')
     .get(searchController.getVideoInfo)
 
+router.route('/spotify')
+    .get(searchController.getSpotify)
+
 module.exports = router
