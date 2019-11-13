@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
-import { infoFromSong } from "../actions";
 import InfoCard from "../components/InfoCard";
+import './style.css'
+
+import checkResult from './../hoc/checkResults'
 
 class Results extends Component {
 
@@ -12,7 +14,7 @@ class Results extends Component {
     } else {
       return (
         <div>
-          {this.props.songs.map(song => (<InfoCard key={song.track_id} song={song} />))}
+          {this.props.songs.map(song => (<InfoCard key={song.track.track_id} song={song} />))}
         </div>
       );
     }
@@ -20,8 +22,11 @@ class Results extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{borderColor:"red"}}>
+        <div style={{borderColor:"green"}}>
         <h1>Here are the results!</h1>
+
+        </div>
         {this.renderOptions()}
       </div>
     );
@@ -32,7 +37,7 @@ function mapStateToProps({ songs }) {
   return { songs: songs.results };
 }
 
-export default connect(
+export default checkResult(connect(
   mapStateToProps,
   null
-)(Results);
+)(Results));
