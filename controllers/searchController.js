@@ -1,6 +1,5 @@
 const axios = require('axios')
-const musixmatchAPIkey = 'a4306ba05d007abcb3b5f60b158e97ed';
-const youtubeAPIkey = 'AIzaSyBTjPLKLgOGpfHDC9mVQm6MeUOTskX2jik';
+
 
 
 // temporary search parameteres
