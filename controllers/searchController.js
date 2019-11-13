@@ -1,6 +1,6 @@
 const axios = require('axios')
-
-
+const Spotify = require('node-spotify-api');
+const keys = require("./../config/dev")
 
 // temporary search parameteres
 const artist = "";
@@ -13,11 +13,6 @@ module.exports = {
   getSongs: function (req, res) {
     axios.get(`http://api.musixmatch.com/ws/1.1/track.search?f_lyrics_language=en&f_has_lyrics=true&q=${lyric}&q_artist=${artist}&q_lyrics=${lyric}&apikey=${musixmatchAPIkey}`)
       .then(function (response) {
-        for (let i = 0; i < response.data.message.body.track_list.length; i++) {
-          console.log("Artist Name - " + response.data.message.body.track_list[i].track.artist_name)
-          console.log("Album Name - " + response.data.message.body.track_list[i].track.album_name)
-          console.log("Track Name - " + response.data.message.body.track_list[i].track.track_name + "\n\n")
-        }
         res.json(response.data.message.body.track_list)
       })
       .catch(err => res.json(err))
@@ -35,5 +30,16 @@ module.exports = {
         res.json(response.data.items);
       })
       .catch(err => res.json(err));
+  },
+  getSpotify: function (req, res){
+    var spotify = new Spotify(keys.spotify)
+    spotify
+      .search({ type: 'track', query: 'come as you are' })
+      .then(function (response) {
+        // external url link to song
+        console.log(response.tracks.items[0].album.artists[0].external_urls.spotify)
+        res.json(response.tracks.items)
+      })
+      .catch(err => res.json(err))
   }
 }
