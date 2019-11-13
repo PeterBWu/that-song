@@ -1,5 +1,5 @@
 module.exports = {
     User: require('./User'),
-    Blog: require('./Blog'),
-    Comment: require('./Comment')
+    SearchHistory: require('./SearchHistory'),
+    FavoriteSong: require('./FavoriteSong'),
 };
