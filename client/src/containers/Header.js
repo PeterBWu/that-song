@@ -9,18 +9,18 @@ class Header extends Component {
 		if (this.props.auth) {
 			return (
 				<div className="navbar-nav ml-auto">
-					<a className="nav-item nav-link" href='/counter'>Favorites</a>
-					<a className="nav-item nav-link" href='/blogs'>Search History</a>
-					<a className="nav-item nav-link" href='/createblog'>Account Settings</a>
-					<a className="nav-item nav-link" href='/signout'>Sign Out</a>
+					<Link className="nav-item nav-link" to='/saved'>Favorites</Link>
+					<Link className="nav-item nav-link" to='/blogs'>Search History</Link>
+					<Link className="nav-item nav-link" to='/createblog'>Account Settings</Link>
+					<Link className="nav-item nav-link" to='/signout'>Sign Out</Link>
 				</div>
 			);
 		} else {
 			return (
 
 				<div className="navbar-nav ml-auto">
-					<a className="nav-item nav-link" href='/signin'>Sign In</a>
-					<a className="nav-item nav-link" href='/signup'>Create Account</a>
+					<Link className="nav-item nav-link" to='/signin'>Sign In</Link>
+					<Link className="nav-item nav-link" to='/signup'>Create Account</Link>
 				</div>
 			);
 		}
@@ -29,7 +29,7 @@ class Header extends Component {
 	render() {
 		return (
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="/">THATsong</a>
+				<Link class="navbar-brand" to="/">THATsong</Link>
           {this.renderLinks()}
 			</nav>
 		)
