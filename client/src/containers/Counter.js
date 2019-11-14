@@ -12,8 +12,7 @@ class Counter extends Component {
             <div>
                 <p>Current counter state: {this.props.counter}</p>
                 <button onClick={this.props.increment}>Increment</button>
-                <button onClick={this.props.decrement}>Decrement</button>  
-                <App/>          
+                <button onClick={this.props.decrement}>Decrement</button>         
             </div>
         );
     }
