@@ -1,6 +1,6 @@
 const axios = require('axios')
 const Spotify = require('node-spotify-api');
-const keys = require("./../config/dev")
+const keys = require("./../config/keys")
 
 // temporary search parameteres
 const artist = "";
