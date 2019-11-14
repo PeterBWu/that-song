@@ -7,7 +7,7 @@ const InfoCard = props => {
   console.log(genre)
   return(
       <div id={song.track_id}>
-        <Link to={`/results/${song.track_id}`}>{song.track_id}</Link>
+        <Link to={`/results/${song.track_id}/${song.artist_name}/${song.track_name}`}>{song.track_id}</Link>
         {/* <p>{JSON.stringify(song)}</p> */} 
         <h3><span className="bolded">Track Name:</span> {song.track_name}</h3>
         <p><span className="bolded">Artist:</span> {song.artist_name}</p>

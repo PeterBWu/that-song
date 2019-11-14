@@ -11,11 +11,16 @@ const authMiddlewares = require('./../../../middlewares/authMiddlewares');
 router.route('/search/:lyric/:artist/')
     .get(searchController.getSongs)
 
-router.route('/display')
+    router.route('/display')
     .get(searchController.getLyrics)
 
-router.route('/videoInfo')
+    router.route('/display/:id')
+    .get(searchController.getLyrics)
+
+    router.route('/videoInfo')
     .get(searchController.getVideoInfo)
+    router.route('/videoInfo/:artistName/:trackName')
+        .get(searchController.getVideoInfo)
 
 router.route('/spotify')
     .get(searchController.getSpotify)
