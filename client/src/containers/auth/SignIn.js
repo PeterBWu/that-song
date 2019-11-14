@@ -8,7 +8,7 @@ class SignIn extends Component {
     onSubmit = formProps => {
         console.log(formProps);
         this.props.signIn(formProps, () => {
-            this.props.history.push('/counter');
+            this.props.history.push('/');
         });
     }
 
@@ -42,8 +42,7 @@ class SignIn extends Component {
                 </div>
     
                 <fieldset className="form-row">
-                    <label className="mt-2"  
-                        for="validationEmail">Email</label>
+                    <label className="mt-2">Email</label>
                     <div className="input-group">
                         <Field type="text" 
                             name="email"
@@ -60,8 +59,7 @@ class SignIn extends Component {
                 </fieldset>
     
                 <fieldset className="form-row">
-                    <label className="mt-2" 
-                        for="validationPassword">Password</label>
+                    <label className="mt-2">Password</label>
                     <div className="input-group">
                         <Field
                         className="form-control"
