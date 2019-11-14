@@ -31,14 +31,11 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route exact path='/' component={LandingPage}/>
-
                     <Route exact path='/signup' component={SignUp} />
                     <Route exact path='/signin' component={SignIn} />
                     <Route exact path='/signout' component={SignOut}/>           
-
                     <Route exact path='/counter' component={Counter} />   
                     <Route exact path='/blogs/:blogId' component={Blog}/>
-
                     <Route exact path='/results' component={Results}/>
                     <Route component={LandingPage} />
                 </Switch>
