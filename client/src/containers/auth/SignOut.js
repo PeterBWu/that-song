@@ -8,7 +8,12 @@ class SignOut extends Component {
   }
 
   render() {
-    return <h1>Sorry to see you go!</h1>;
+    return (
+      <div className="container fluid text-center">
+        <h1 className="jumbotron bg-success"
+        >Sorry to see you go!</h1>;
+  </div>
+    )
   }
 }
 
