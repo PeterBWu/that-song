@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
-import Counter from './containers/Counter';
+import Saved from './containers/Saved';
 import SignUp from './containers/auth/SignUp/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
@@ -34,7 +34,7 @@ ReactDOM.render(
                     <Route exact path='/signup' component={SignUp} />
                     <Route exact path='/signin' component={SignIn} />
                     <Route exact path='/signout' component={SignOut}/>           
-                    <Route exact path='/counter' component={Counter} />   
+                    <Route exact path='/saved' component={Saved} />   
                     <Route exact path='/blogs/:blogId' component={Blog}/>
                     <Route exact path='/results' component={Results}/>
                     <Route component={LandingPage} />

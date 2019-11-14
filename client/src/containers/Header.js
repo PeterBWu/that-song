@@ -9,7 +9,7 @@ class Header extends Component {
         if(this.props.auth) {
             return (
                 <div style={{justifyContent:"flex-end"}}>
-                    <Link to='/counter'>Saved Songs</Link>
+                    <Link to='/saved'>Saved Songs</Link>
                     <Link to='/blogs'>Search History</Link>
                     <Link to='/createblog'>AccountSettings</Link>
                     <Link to='/signout'>Sign Out</Link>
