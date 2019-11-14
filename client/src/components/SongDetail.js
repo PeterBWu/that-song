@@ -1,22 +1,14 @@
 import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
-import { compose } from "redux";
-import { connect } from "react-redux";
 import {  useParams} from "react-router-dom";
+import SongInfo from './../containers/SongInfo'
 
 function SongDetail(props){
-  let {id} = useParams()
+  let {id,artist,trackName} = useParams()
     return (
     <div >
-        <h1>{id}</h1>
+        <SongInfo params={{id,artist,trackName}} />
     </div>
     );
   }
 
-
-const formedComponent = compose(
-  connect(null, null),
-  reduxForm({ form: 'SongDetail' })
-)(SongDetail);
-
-export default formedComponent;
+export default SongDetail;

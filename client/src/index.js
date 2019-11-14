@@ -41,7 +41,7 @@ ReactDOM.render(
                     <Route exact path='/blogs/:blogId' component={Blog}/>
 
                     <Route exact path='/results' component={Results}/>
-                    <Route exact path='/results/:id' component={SongDetail}/>
+                    <Route exact path='/results/:id/:artist/:trackName' component={SongDetail}/>
                     <Route component={LandingPage} />
                 </Switch>
             </App>
