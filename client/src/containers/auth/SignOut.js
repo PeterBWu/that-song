@@ -9,10 +9,10 @@ class SignOut extends Component {
 
   render() {
     return (
-      <div className="container fluid text-center">
-        <h1 className="jumbotron bg-success"
-        >Sorry to see you go!</h1>;
-  </div>
+      <div id="farewell" className="container fluid text-center">
+        <h1 className="jumbotron card border-dark shadow-lg rounded"
+        >See you next time!</h1>
+      </div>
     )
   }
 }
