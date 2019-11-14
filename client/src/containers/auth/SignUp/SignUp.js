@@ -49,7 +49,7 @@ class SignUp extends Component {
           </div>
 
           <fieldset className="form-row">
-            <label for="validationEmail">Email</label>
+            <label>Email</label>
             <div className="input-group">
               <Field type="text" 
                 name="email"
@@ -83,7 +83,7 @@ class SignUp extends Component {
             </div>
           </fieldset>
           <fieldset className="form-row">
-            <label className="mt-2" for="vaildatePasswordConfirm">Confirm Password</label>
+            <label className="mt-2">Confirm Password</label>
             <div>
             <Field
               className="form-control"
