@@ -17,12 +17,12 @@ class SignUp extends Component {
       })
     }
     else{
-      alert('error')
+      alert('Passwords do not match!')
   };
 }
 
   validate = values => {
-  if(values.email && values.password && values.password === values.confirm_password){
+  if(values.password === values.confirm_password){
     return true
   } else {
     return false;
@@ -37,43 +37,70 @@ class SignUp extends Component {
         className="container
                     d-flex 
                     justify-content-center 
-                    text-dark">
+                    text-dark"
+                    >
         <form id="input_box"
           onSubmit={handleSubmit(this.onSubmit)}
-          className="m-4 p-4" >
+          className="m-4 card border-secondary shadow-lg p-3 rounded"
+          >
+          <div className="m-3 p-3" style={{border: '2px darkgrey solid'}}>
+            <h1 className="form-row card-title text-dark"
+            >Join with your email</h1>
+          </div>
+
           <fieldset className="form-row">
-            <label>Email</label>
-            <Field
-              className="border-light"
-              name="email"
-              type="text"
-              component="input"
-              autoComplete="none"
-            />
+            <label for="validationEmail">Email</label>
+            <div className="input-group">
+              <Field type="text" 
+                name="email"
+                component="input"
+                autoComplete="none"
+                className="form-control" 
+                placeholder="that@song.com" 
+                aria-describedby="inputGroupPrepend" 
+                required/>
+                <div className="invalid-feedback">
+                  Please provide an email.
+                </div>
+              </div>
+          </fieldset>
+
+          <fieldset className="form-row">
+            <label className="mt-2" 
+                    for="validationPassword">Password</label>
+            <div className="input-group">
+              <Field
+                className="form-control"
+                name="password"
+                type="password"
+                component="input"
+                autoComplete="none"
+                aria-describedby="inputGroupPrepend"
+                required/>
+                <div className="invalid-feedback">
+                  Please choose a password.
+                </div>
+            </div>
           </fieldset>
           <fieldset className="form-row">
-            <label>Password</label>
+            <label className="mt-2" for="vaildatePasswordConfirm">Confirm Password</label>
+            <div>
             <Field
-              className="border-light"
-              name="password"
-              type="password"
-              component="input"
-              autoComplete="none"
-            />
-          </fieldset>
-          <fieldset className="form-row">
-            <label>Confirm Password</label>
-            <Field
-              className="border-light"
+              className="form-control"
               name="confirm_password"
               type="password"
               component="input"
               autoComplete="none"
-            />
+              aria-describedby="inputGroupPrepend"
+              required/>
+              <div className="invalid-feedback">
+                Please confirm password.
+              </div>
+            </div>
           </fieldset>         
           <div>{this.props.errorMessage}</div>
           <div className="text-center "> 
-          <button className="btn btn-outline-dark mt-3">Signup</button>
+          <button className="btn btn-outline-dark mt-3 rounded-pill">Sign Up</button>
           </div>
         </form>
       </div>
