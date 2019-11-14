@@ -9,7 +9,7 @@ class Header extends Component {
 		if (this.props.auth) {
 			return (
 				<div className="navbar-nav ml-auto">
-					<a className="nav-item nav-link" href='/counter'>Favorites</a>
+					<a className="nav-item nav-link" href='/saved'>Favorites</a>
 					<a className="nav-item nav-link" href='/blogs'>Search History</a>
 					<a className="nav-item nav-link" href='/createblog'>Account Settings</a>
 					<a className="nav-item nav-link" href='/signout'>Sign Out</a>
