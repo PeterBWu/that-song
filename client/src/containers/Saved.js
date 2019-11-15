@@ -31,10 +31,12 @@ class Saved extends Component {
                     {
                         this.props.songs.map(song => {
                             return (
-                                <div className="container"key={song._id}>
-                                    <h2>{song.artist}</h2>
-                                    <h3>{song.songName}</h3>
-                                    <h4>{song.lyrics}</h4>
+                                <div  key={song._id}  className="container bg-dark">
+                                    <div  key={song._id} className="col-12  float-left mt-2 mb-2 border-top border rounded-pill" key={song._id}>
+                                        <h2 key={song._id} >{song.artist}</h2>
+                                        <h3 key={song._id} >{song.songName}</h3>
+                                        <h4 key={song._id}  >{song.lyrics}</h4>
+                                    </div>
                                 </div>
                             )
                         })
