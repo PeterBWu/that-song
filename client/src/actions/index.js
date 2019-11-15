@@ -75,21 +75,37 @@ export const createBlog = (blog, callback) => async dispatch => {
 
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {
-    console.log('---------')
-    console.log(formProps);
     const {lyric,artist} = formProps
-    console.log('---------')
     const trackList = await axios.get('api/lyrics/search/'+lyric+'/'+artist)
-    console.log('hellowrold')
-    // const secondCall = await axios.get(' our Backend B', trackList)
-    // const secondCall = { data: [{id:'1234'},{id:'4321'}] };
-    // console.log(trackList.data)
     dispatch({ type: types.GET_SONGS, payload: trackList.data });
     callback();
   } catch (e) {
     dispatch({
       type: types.GET_SONGS_ERROR,
       payload: "something went wrong with getting the songs"
+    });
+  }
+};
+export const fetchDetails = (formProps, callback) => async dispatch => {
+  try{
+    const {id,artist,trackName} = formProps
+    const lyrics     = await axios.get('/api/lyrics/display/'+id)
+    const spotify    = await axios.get('/api/lyrics/spotify')
+    const youtube    = await axios.get(`/api/lyrics/videoInfo/${artist}/${trackName}`)
+    console.log('hellowrold')
+    console.log(lyrics.data)
+    console.log(spotify.data)
+    console.log(youtube.data)
+    // const secondCall = await axios.get(' our Backend B', trackList)
+    // const secondCall = { data: [{id:'1234'},{id:'4321'}] };
+    // console.log(trackList.data)
+    dispatch({ type: types.SONG_INFO, payload: {lyrics:lyrics.data,spotify:spotify.data,youtube:youtube.data} });
+    callback();
+
+  } catch (e) {
+    dispatch({
+      type: types.GET_SONGS_ERROR,
+      payload: "Something Went Wrong Getting Song Info. Please Try Again Later!"
     });
   }
 };
