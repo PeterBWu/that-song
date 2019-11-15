@@ -13,6 +13,7 @@ import SignOut from './containers/auth/SignOut';
 import Blog from './containers/blogs/Blog';
 import Results from './containers/Results';
 import LandingPage from './containers/LandingPage';
+import ProfileHome from './containers/ProfileHome';
 
 
 import reducers from './reducers';
@@ -37,6 +38,7 @@ ReactDOM.render(
                     <Route exact path='/saved' component={Saved} />   
                     <Route exact path='/blogs/:blogId' component={Blog}/>
                     <Route exact path='/results' component={Results}/>
+                    <Route exact path='/profile' component={ProfileHome}/>
                     <Route component={LandingPage} />
                 </Switch>
             </App>
