@@ -11,7 +11,7 @@ class Header extends Component {
 				<div className="navbar-nav ml-auto">
 					<Link className="nav-item nav-link" to='/saved'>Favorites</Link>
 					<Link className="nav-item nav-link" to='/blogs'>Search History</Link>
-					<Link className="nav-item nav-link" to='/createblog'>Account Settings</Link>
+					<Link className="nav-item nav-link" to='/profile'>Account Settings</Link>
 					<Link className="nav-item nav-link" to='/signout'>Sign Out</Link>
 				</div>
 			);
@@ -35,10 +35,6 @@ class Header extends Component {
 		)
 	}
 }
-
-// class Header extends Component {
-
-// }
 
 function mapStateToProps({ auth }) {
 	return { auth: auth.authenticated };

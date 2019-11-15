@@ -120,3 +120,11 @@ export const fetchDetails = (formProps, callback) => async dispatch => {
     });
   }
 };
+
+  export const changeSelectedTab = (selectedTab, tabNamespace) => {
+    return {
+      type: types.CHANGE_SELECTED_TAB,
+      tab: selectedTab,
+      namespace: tabNamespace
+    };
+  }
