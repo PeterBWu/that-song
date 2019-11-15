@@ -28,8 +28,8 @@ class Header extends Component {
 
 	render() {
 		return (
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<Link class="navbar-brand" to="/">THATsong</Link>
+			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+				<Link className="navbar-brand" to="/">THATsong</Link>
           {this.renderLinks()}
 			</nav>
 		)

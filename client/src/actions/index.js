@@ -73,6 +73,17 @@ export const createBlog = (blog, callback) => async dispatch => {
   }
 };
 
+export const getSavedSongs = () => async dispatch => {
+  try {
+    const savedSongs = await axios.get('api/favsongs', {
+      headers: {authorization: localStorage.getItem("token")}
+    })
+    dispatch({ type: types.GET_SAVED_SONGS, payload: savedSongs.data});
+  } catch(e){
+    dispatch({ type: types.GET_SAVED_SONGS_ERROR, payload: "Something went wrong connecting to database "});
+  }
+};
+
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {
     const {lyric,artist} = formProps
