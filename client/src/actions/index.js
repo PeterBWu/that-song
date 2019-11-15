@@ -59,7 +59,7 @@ export const fetchBlog = id => async dispatch => {
 
 export const createBlog = (blog, callback) => async dispatch => {
   try {
-    const response = await axios.post("/api/blogs", blog, {
+    await axios.post("/api/blogs", blog, {
       headers: { authorization: localStorage.getItem("token") }
     });
 
@@ -76,29 +76,30 @@ export const createBlog = (blog, callback) => async dispatch => {
 export const getSavedSongs = () => async dispatch => {
   try {
     const savedSongs = await axios.get('api/favsongs', {
-      headers: {authorization: localStorage.getItem("token")}
+      headers: { authorization: localStorage.getItem("token") }
     })
-    dispatch({ type: types.GET_SAVED_SONGS, payload: savedSongs.data});
-  } catch(e){
-    dispatch({ type: types.GET_SAVED_SONGS_ERROR, payload: "Something went wrong connecting to database "});
+    dispatch({ type: types.GET_SAVED_SONGS, payload: savedSongs.data });
+  } catch (e) {
+    dispatch({ type: types.GET_SAVED_SONGS_ERROR, payload: "Something went wrong connecting to database" });
   }
 };
 
 export const getSearchHistory = () => async dispatch => {
   try {
     const searchHistory = await axios.get('api/history', {
-      headers: {authorization: localStorage.getItem("token")}
+      headers: { authorization: localStorage.getItem("token") }
     })
     dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data})
-  } catch(e){
-    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: 'Something went wrong connecting to the database'});
+  } catch (e) {
+    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong fetching search history"})
   }
 };
 
+
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {
-    const {lyric,artist} = formProps
-    const trackList = await axios.get('api/lyrics/search/'+lyric+'/'+artist)
+    const { lyric, artist } = formProps
+    const trackList = await axios.get('api/lyrics/search/' + lyric + '/' + artist)
     dispatch({ type: types.GET_SONGS, payload: trackList.data });
     callback();
   } catch (e) {
@@ -109,11 +110,11 @@ export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   }
 };
 export const fetchDetails = (formProps, callback) => async dispatch => {
-  try{
-    const {id,artist,trackName} = formProps
-    const lyrics     = await axios.get('/api/lyrics/display/'+id)
-    const spotify    = await axios.get('/api/lyrics/spotify')
-    const youtube    = await axios.get(`/api/lyrics/videoInfo/${artist}/${trackName}`)
+  try {
+    const { id, artist, trackName } = formProps
+    const lyrics = await axios.get('/api/lyrics/display/' + id)
+    const spotify = await axios.get('/api/lyrics/spotify')
+    const youtube = await axios.get(`/api/lyrics/videoInfo/${artist}/${trackName}`)
     console.log('hellowrold')
     console.log(lyrics.data)
     console.log(spotify.data)
@@ -121,7 +122,7 @@ export const fetchDetails = (formProps, callback) => async dispatch => {
     // const secondCall = await axios.get(' our Backend B', trackList)
     // const secondCall = { data: [{id:'1234'},{id:'4321'}] };
     // console.log(trackList.data)
-    dispatch({ type: types.SONG_INFO, payload: {lyrics:lyrics.data,spotify:spotify.data,youtube:youtube.data} });
+    dispatch({ type: types.SONG_INFO, payload: { lyrics: lyrics.data, spotify: spotify.data, youtube: youtube.data } });
     callback();
 
   } catch (e) {
@@ -132,10 +133,10 @@ export const fetchDetails = (formProps, callback) => async dispatch => {
   }
 };
 
-  export const changeSelectedTab = (selectedTab, tabNamespace) => {
-    return {
-      type: types.CHANGE_SELECTED_TAB,
-      tab: selectedTab,
-      namespace: tabNamespace
-    };
-  }
+export const changeSelectedTab = (selectedTab, tabNamespace) => {
+  return {
+    type: types.CHANGE_SELECTED_TAB,
+    tab: selectedTab,
+    namespace: tabNamespace
+  };
+}

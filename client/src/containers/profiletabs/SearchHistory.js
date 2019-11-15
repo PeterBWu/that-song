@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSearchHistory } from './../../actions';
 import Loader from "react-loader-spinner";
-
 import requireAuth from './../../hoc/requireAuth';
-
 class History extends Component {
-
     componentDidMount(){
         this.props.getSearchHistory();
     }
-
-
     renderHistory = () => {
         console.log(this.props.history)
         if (!this.props.history[0]) {
@@ -40,22 +35,17 @@ class History extends Component {
             )
         }
     }
-
     render() {
 
         return (
             <div>
                 {this.renderHistory()}
-
             </div>
         );
     }
 }
-
 // This state is equivalent to the object that's inside our reducers/index.js
 function mapStateToProps({ history }){
     return { history: history.data };
 }   
-
 export default requireAuth(connect(mapStateToProps, { getSearchHistory })(History));
-
