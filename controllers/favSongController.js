@@ -2,9 +2,11 @@ const db = require('../models');
 
 module.exports = {
   getFavSongs: async (req, res) => {
-    try {
+    
+    try {    
       const songs = await db.FavoriteSong.find().populate('user', 'email');
       res.json(songs);
+      console.log(songs)
     } catch(err) {
       res.json(err);
     }

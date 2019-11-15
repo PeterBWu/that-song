@@ -47,7 +47,4 @@ function mapStateToProps({ blogs }) {
   return { blog: blogs.blog };
 }
 
-export default connect(
-  mapStateToProps,
-  { fetchBlog }
-)(Blog);
+export default connect(mapStateToProps, { fetchBlog })(Blog);
