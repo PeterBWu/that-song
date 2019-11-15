@@ -2,9 +2,11 @@ const db = require('./../models');
 
 module.exports = {
   getHistoryItems: async (req, res) => {
+    console.log('hit history backend')
     try {
       const historyItems = await db.SearchHistory.find().populate('user', 'password');
       res.json(historyItems);
+      console.log(historyItems)
     } catch(err) {
       res.json(err);
     }

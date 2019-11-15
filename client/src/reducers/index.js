@@ -7,6 +7,7 @@ import counter from './counter';
 import blogs from './blog';
 import savedSongs from './savedSongs'
 import tabsReducer from './tabs'
+import history from './history'
 
 export default combineReducers({
     auth,
@@ -15,5 +16,6 @@ export default combineReducers({
     songs,
     savedSongs,
     tabsReducer,
+    history,
     form: formReducer
 });

@@ -84,6 +84,17 @@ export const getSavedSongs = () => async dispatch => {
   }
 };
 
+export const getSearchHistory = () => async dispatch => {
+  try {
+    const searchHistory = await axios.get('api/history', {
+      headers: {authorization: localStorage.getItem("token")}
+    })
+    dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data})
+  } catch(e){
+    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: 'Something went wrong connecting to the database'});
+  }
+};
+
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {
     const {lyric,artist} = formProps
