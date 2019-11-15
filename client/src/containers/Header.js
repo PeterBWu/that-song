@@ -11,7 +11,7 @@ class Header extends Component {
 				<div className="navbar-nav ml-auto">
 					<Link className="nav-item nav-link" to='/saved'>Favorites</Link>
 					<Link className="nav-item nav-link" to='/blogs'>Search History</Link>
-					<Link className="nav-item nav-link" to='/createblog'>Account Settings</Link>
+					<Link className="nav-item nav-link" to='/profile'>Account Settings</Link>
 					<Link className="nav-item nav-link" to='/signout'>Sign Out</Link>
 				</div>
 			);
@@ -28,17 +28,13 @@ class Header extends Component {
 
 	render() {
 		return (
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<Link class="navbar-brand" to="/">THATsong</Link>
+			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+				<Link className="navbar-brand" to="/">THATsong</Link>
           {this.renderLinks()}
 			</nav>
 		)
 	}
 }
-
-// class Header extends Component {
-
-// }
 
 function mapStateToProps({ auth }) {
 	return { auth: auth.authenticated };

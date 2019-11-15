@@ -14,6 +14,7 @@ import Blog from './containers/blogs/Blog';
 import Results from './containers/Results';
 import LandingPage from './containers/LandingPage';
 import SongDetail from './components/SongDetail';
+import ProfileHome from './containers/ProfileHome';
 
 
 import reducers from './reducers';
@@ -39,6 +40,7 @@ ReactDOM.render(
                     <Route exact path='/blogs/:blogId' component={Blog}/>
                     <Route exact path='/results' component={Results}/>
                     <Route exact path='/results/:id/:artist/:trackName' component={SongDetail}/>
+                    <Route exact path='/profile' component={ProfileHome}/>
                     <Route component={LandingPage} />
                 </Switch>
             </App>

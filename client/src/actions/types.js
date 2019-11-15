@@ -9,3 +9,4 @@ export const CREATE_BLOG = 'CREATE_BLOG';
 export const GET_SONGS = 'GET_SONGS';
 export const GET_SONGS_ERROR = 'GET_SONGS_ERROR';
 export const SONG_INFO = 'SONG_INFO';
+export const CHANGE_SELECTED_TAB = "CHANGE_SELECTED_TAB";
