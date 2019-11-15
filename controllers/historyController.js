@@ -1,15 +1,19 @@
 const db = require('./../models');
 
 module.exports = {
-  getHistoryItems: async (req, res) => {
-    try {
+  getHistoryItems: async (req, res) => {  
+    console.log("hit in backend")
+    try { 
+      
       const historyItems = await db.SearchHistory.find().populate('user', 'password');
       res.json(historyItems);
+      console.log(historyItems)
     } catch(err) {
       res.json(err);
     }
   },
   getHistoryItem: async (req, res) => {
+    
     const { historyId } = req.params;
     try {
       const historyItem = await db.SearchHistory.findById(historyId).populate('user', 'email');
