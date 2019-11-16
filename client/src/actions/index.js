@@ -62,7 +62,6 @@ export const createBlog = (blog, callback) => async dispatch => {
     await axios.post("/api/blogs", blog, {
       headers: { authorization: localStorage.getItem("token") }
     });
-
     dispatch({ type: types.CREATE_BLOG });
     callback();
   } catch (e) {
@@ -86,15 +85,52 @@ export const getSavedSongs = () => async dispatch => {
 
 export const getSearchHistory = () => async dispatch => {
   try {
-    const searchHistory = await axios.get('api/history', {
+    const searchHistory = await axios.get('api/history/', {
       headers: { authorization: localStorage.getItem("token") }
     })
-    dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data})
+    dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data })
   } catch (e) {
-    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong fetching search history"})
+    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong fetching search history" })
   }
 };
 
+export const createSearchHistory = (item, callback) => async dispatch => {
+  console.log(item.lyric)
+  const items = {
+    searchPhrase: item.lyric
+  }
+  try{
+    const response = await axios.post('/api/history', items, {
+      headers: { authorization: localStorage.getItem("token")}
+    })
+    dispatch({ type: types.CREATE_HISTORY_ITEM })
+    callback()
+  } catch (e) {
+    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong saving history"})
+  }
+}
+
+export const deleteHistoryItem = id => async dispatch => {
+  try{
+    const response = await axios.delete(`api/history/${id}`, {
+      headers: {authorization: localStorage.getItem("token")}
+    })
+    dispatch({ type: types.DELETE_HISTORY_ITEM, payload: response.data})
+  } catch (e) {
+    dispatch({ type: types.DELETE_HISTORY_ITEM_ERROR, payload: "Something went wrong deleting history item"})
+  }
+};
+
+export const deleteSong = id => async dispatch => {
+  try {
+    const response = await axios.delete(`api/favsongs/${id}`, {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    dispatch({ type: types.DELETE_SAVED_SONG, payload: response.data })
+  } catch (e) {
+    dispatch({ type: types.DELETE_SAVED_SONG_ERROR, payload: "something went wrong deleting song from database" })
+  }
+};
 
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {

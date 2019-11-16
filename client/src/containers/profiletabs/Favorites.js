@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getSavedSongs } from './../../actions';
 import Loader from "react-loader-spinner";
 import requireAuth from './../../hoc/requireAuth';
-import SongInfo from './../../containers/SongInfo'
+import SavedCard from './../../components/SavedCard'
 
 
 class Saved extends Component {
@@ -14,7 +14,7 @@ class Saved extends Component {
     }
 
     renderSongs = () => {
-      
+        console.log(this.props.songs)
         if (!this.props.songs[0]) {
             return (
                 <Loader
@@ -31,13 +31,14 @@ class Saved extends Component {
                     {
                         this.props.songs.map(song => {
                             return (
-                                <div className="container bg-dark">
-                                    <div className="col-12  float-left mt-2 mb-2 border-top border rounded-pill" key={song._id}>
-                                        <h3>{song.artist}</h3>
-                                        <h4>{song.songName}</h4>
-                                        <h5>{song.lyrics}</h5>
-                                    </div>
-                                </div>
+                                <SavedCard 
+                                render={this.props.getSavedSongs}
+                                key={song._id}
+                                _id={song._id}
+                                artist={song.artist}
+                                songName={song.songName}
+                                lyrics={song.lyrics}             
+                                />
                             )
                         })
                     }

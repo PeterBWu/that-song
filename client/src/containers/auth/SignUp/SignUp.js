@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import { signup } from "../../../actions";
 import './style.css'
-import { truncate } from "fs";
+
 
 
 class SignUp extends Component {

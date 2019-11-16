@@ -9,8 +9,6 @@ class Header extends Component {
 		if (this.props.auth) {
 			return (
 				<div className="navbar-nav ml-auto">
-					<Link className="nav-item nav-link" to='/saved'>Favorites</Link>
-					<Link className="nav-item nav-link" to='/blogs'>Search History</Link>
 					<Link className="nav-item nav-link" to='/profile'>Account Settings</Link>
 					<Link className="nav-item nav-link" to='/signout'>Sign Out</Link>
 				</div>

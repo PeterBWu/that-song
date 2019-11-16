@@ -26,6 +26,7 @@ module.exports = {
     }
   },
   createHistoryItem: async (req, res) => {
+    console.log("req.body - ", req.body)
     const { searchPhrase, songName } = req.body;
     try {
       const historyItem = await new db.SearchHistory({
