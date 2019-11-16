@@ -89,12 +89,23 @@ export const getSearchHistory = () => async dispatch => {
     const searchHistory = await axios.get('api/history', {
       headers: { authorization: localStorage.getItem("token") }
     })
-    dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data})
+    dispatch({ type: types.GET_SEARCH_HISTORY, payload: searchHistory.data })
   } catch (e) {
-    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong fetching search history"})
+    dispatch({ type: types.GET_SEARCH_HISTORY_ERROR, payload: "Something went wrong fetching search history" })
   }
 };
 
+export const deleteSong = id => async dispatch => {
+  console.log(`api/favsong/${id}`)
+  try {
+    const response = await axios.delete(`api/favsongs/${id}`, {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    dispatch({ type: types.DELETE_SAVED_SONG, payload: response.data })
+  } catch (e) {
+    dispatch({ type: types.DELETE_SAVED_SONG_ERROR, payload: "something went wrong deleting song from database" })
+  }
+};
 
 export const searchSongByLyrics = (formProps, callback) => async dispatch => {
   try {

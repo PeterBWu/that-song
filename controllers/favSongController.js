@@ -1,12 +1,10 @@
 const db = require('../models');
 
 module.exports = {
-  getFavSongs: async (req, res) => {
-    
+  getFavSongs: async (req, res) => { 
     try {    
       const songs = await db.FavoriteSong.find().populate('user', 'email');
       res.json(songs);
-      console.log(songs)
     } catch(err) {
       res.json(err);
     }
@@ -41,7 +39,6 @@ module.exports = {
     }
   },
   deleteFavSong: async (req, res) => {
-    // res.json('hit')
     const { favSongId } = req.params;
     try {
       const song = await db.FavoriteSong.findById(favSongId);
