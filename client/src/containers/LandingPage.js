@@ -18,18 +18,18 @@ class LandingPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div id="input_box" className="w-75 bg-dark" style={{ float: "none" }}>
+      <div id="input_box" className="w-75 bg-dark rounded" style={{ float: "none" }}>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <Field
             name="lyric"
             type="text"
             component="input"
             autoComplete="none"
-            className="p-2 sol-10 w-100 search_input searchField text-center"
+            className="p-2 col-10 w-100 search_input searchField text-center"
             placeholder="Find That Song!!"
             aria-label="Search"
           />
-          <button className="col-2 float-right fa fa-search btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"></button>      </form>
+          <button className="pb-4 col-2 float-right rounded fa fa-search btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"></button>      </form>
       </div>
     );
   }
