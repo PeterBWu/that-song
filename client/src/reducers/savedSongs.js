@@ -12,6 +12,10 @@ export default function (state = INITIAL_STATE, action) {
       return { ...state, data: action.payload }
     case types.GET_SAVED_SONGS_ERROR:
       return { ...state, apiError: action.payload }
+    // case types.DELETE_SAVED_SONG:
+    //   return{ ...state, data: action.payload}
+    // case types.DELETE_SAVED_SONG_ERROR:
+    //   return{ ...state, apiError: action.payload}
     default:
       return state;
   }
