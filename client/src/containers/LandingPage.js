@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { searchSongByLyrics } from "../actions";
+import { searchSongByLyrics, createSearchHistory } from "../actions";
 
 // import requireAuth from './../../hoc/requireAuth';
 
@@ -11,6 +11,8 @@ class LandingPage extends Component {
     this.props.searchSongByLyrics(formValues, () => {
       this.props.history.push("./results");
     });
+    this.props.createSearchHistory(formValues);
+
   };
 
   render() {
@@ -34,7 +36,7 @@ class LandingPage extends Component {
 }
 
 const formedComponent = compose(
-  connect(null, { searchSongByLyrics }),
+  connect(null, { searchSongByLyrics, createSearchHistory }),
   reduxForm({ form: 'landingPage' })
 )(LandingPage);
 
