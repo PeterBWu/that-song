@@ -12,7 +12,8 @@ const FavoriteSongSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  songid:Number
 });
 
 const FavoriteSong = mongoose.model('FavoriteSong', FavoriteSongSchema)
