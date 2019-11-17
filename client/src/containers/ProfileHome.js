@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import changeSelectedTab from '../actions';
+// import { compose } from "redux";
+// import { connect } from "react-redux";
+// import changeSelectedTab from '../actions';
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 
 

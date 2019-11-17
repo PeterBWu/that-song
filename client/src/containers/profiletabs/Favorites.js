@@ -14,7 +14,7 @@ class Saved extends Component {
     }
 
     renderSongs = () => {
-        console.log(this.props.songs)
+        // console.log(this.props.songs)
         if (!this.props.songs[0]) {
             return (
                 <Loader
@@ -65,8 +65,3 @@ function mapStateToProps({ savedSongs }) {
 }
 
 export default requireAuth(connect(mapStateToProps, { getSavedSongs })(Saved));
-
-
-
-
-

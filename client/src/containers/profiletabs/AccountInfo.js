@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increment, decrement } from './../../actions';
-
+import { getAccountInfo } from './../../actions';
+import Loader from "react-loader-spinner";
 import requireAuth from './../../hoc/requireAuth';
 
-import App from './../../components/App';
 
-class Saved extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Account Info Here</h1>       
-            </div>
-        );
-    }
+class Account extends Component {
+
+	componentDidMount() {
+		this.props.getAccountInfo()
+	}
+
+	renderAccountInfo = () => {
+		if (!this.props.email) {
+			return (
+				<Loader
+					type="Oval"
+					color="purple"
+					height={100}
+					width={100}
+					timeout={3000}
+				/>
+			);
+		} else {
+			return (
+				<h3>E-mail: {this.props.email}</h3>
+			)
+		}
+	}
+
+	render() {
+		// console.log(this.props.email)
+		return (
+			<div>
+				{this.renderAccountInfo()}
+			</div>
+		);
+	}
 }
 
-// This state is equivalent to the object that's inside our reducers/index.js
-function mapStateToProps(state){
-    return { counter: state.counter.counter };
-}   
+function mapStateToProps(state) {
+	// console.log('account', state.account.email.data)
+	return { email: state.account.email.data };
+}
 
-export default requireAuth(connect(mapStateToProps, {increment, decrement})(Saved));
+export default requireAuth(connect(mapStateToProps, { getAccountInfo })(Account));
 
