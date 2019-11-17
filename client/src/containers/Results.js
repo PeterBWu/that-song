@@ -13,8 +13,11 @@ class Results extends Component {
       return <Loader type="Oval" color="purple" height={100} width={100} />;
     } else {
       return (
-        <div>
+        <div className="container">
+          <div className='card-columns'>
+
           {this.props.songs.map(song => (<InfoCard key={song.track.track_id} song={song} />))}
+          </div>
         </div>
       );
     }
@@ -22,9 +25,9 @@ class Results extends Component {
 
   render() {
     return (
-      <div style={{borderColor:"red"}}>
+      <div style={{borderColor:"red"}} >
         <div style={{borderColor:"green"}}>
-        <h1>Here are the results!</h1>
+        <h1 className="text-center my-5">Here are the results!</h1>
 
         </div>
         {this.renderOptions()}
