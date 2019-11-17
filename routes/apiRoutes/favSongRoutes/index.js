@@ -6,11 +6,11 @@ const passport          = require('passport');
 const authMiddlewares = require('../../../middlewares/authMiddlewares');
 
 router.route('/')
-  .get(favSongController.getFavSongs)
+  .get(authMiddlewares.requireAuth, favSongController.getFavSongs)
   .post(authMiddlewares.requireAuth, favSongController.createFavSong)
 
 router.route('/:favSongId')
-  .get(favSongController.getFavSong)
+  .get(authMiddlewares.requireAuth, favSongController.getFavSong)
   .delete(authMiddlewares.requireAuth, favSongController.deleteFavSong)
 
 module.exports = router;
