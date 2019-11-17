@@ -11,19 +11,26 @@ class SongInfo extends Component {
     return ;
   };
 
+  handleClick = () => {
+    if (localStorage.getItem('token')){
+      Axios.post('/api/favsongs/',{
+        songName:this.props.params.trackName,
+        artist: this.props.params.artist,
+        lyrics:this.props.data.lyrics.lyrics_body,
+        songid:this.props.params.id
+      },{headers:{authorization:localStorage.getItem('token')}}).then(response=> console.log(response.data))
+    }
+
+  }
  componentDidMount(){
   this.props.fetchDetails(this.props.params)
   }
 
   renderData = () =>{
-    // const {lyrics,spotify,youtube} = this.getContent()
-    // console.log(lyrics,youtube,spotify)
-    console.log(this.props.data)
-    console.log(Object.keys(this.props.data))
     if (!(Object.keys(this.props.data).length===0 && this.props.data.constructor === Object)){
-      console.log("hitto hitto")
       return(
         <div>
+    <button onClick={this.handleClick}>save</button>
         <h1>{this.props.params.trackName}</h1>
         <h2>{this.props.params.artist}</h2>
         <div><iframe width="420" height="315"
@@ -37,7 +44,7 @@ src={"https://www.youtube.com/embed/"+this.props.data.youtube[0].id.videoId}>
       </div>
     )
   }else{
-    return(<div></div>)
+    return(<div><h1>No Results Found</h1></div>)
   }
   }
   
