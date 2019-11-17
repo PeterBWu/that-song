@@ -22,13 +22,14 @@ module.exports = {
     }
   },
   createFavSong: async (req, res) => {
-    const {songName, artist, lyrics} = req.body;
+    const {songName, artist, lyrics,songid} = req.body;
     try {
       const song = await new db.FavoriteSong({
         user: req.user._id,
         songName,
         artist,
-        lyrics
+        lyrics,
+        songid
       });
       await song.save();
       req.user.favoriteSongs.push(song)
