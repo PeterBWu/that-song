@@ -13,7 +13,7 @@ class SignUp extends Component {
     console.log(formProps);
     if(this.validate(formProps)){
       this.props.signup(formProps, () => {
-        this.props.history.push("/counter");
+        this.props.history.push("/");
       })
     }
     else{
