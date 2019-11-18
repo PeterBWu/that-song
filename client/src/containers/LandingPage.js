@@ -29,7 +29,7 @@ class LandingPage extends Component {
             placeholder="Find That Song!!"
             aria-label="Search"
           />
-          <button className="pb-4 col-2 float-right rounded fa fa-search btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"></button>      </form>
+          <button className="pb-4 col-2 float-right rounded fa fa-search fa-1x btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"></button>      </form>
       </div>
     );
   }

@@ -4,3 +4,16 @@ span.bolded{
 /* div{
     border:1px dashed;
 } */
+
+.logoFont {
+    font-family: 'Bitter', serif;
+    font-size: 25px;
+}
+
+.logoColor1 {
+    color: hotpink;
+}
+
+.logoColor2 {
+    color: #43b0cc;
+}
