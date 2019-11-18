@@ -4,7 +4,7 @@ const historyController    = require('../../../controllers/historyController');
 const authMiddlewares = require('../../../middlewares/authMiddlewares');
 
 router.route('/')
-  .get(historyController.getHistoryItems)
+  .get(authMiddlewares.requireAuth, historyController.getHistoryItems)
   .post(authMiddlewares.requireAuth, historyController.createHistoryItem)
 
 router.route('/:historyId')
