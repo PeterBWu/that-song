@@ -4,10 +4,9 @@ module.exports = {
   getHistoryItems: async (req, res) => {  
     console.log("hit in backend")
     try { 
-      
-      const historyItems = await db.SearchHistory.find().populate('user', 'password');
-      res.json(historyItems);
-      console.log(historyItems)
+      const historyItems = await db.User.findById(req.user._id).populate('searchHistory');
+      console.log(historyItems.searchHistory)
+      res.json(historyItems.searchHistory);
     } catch(err) {
       res.json(err);
     }
