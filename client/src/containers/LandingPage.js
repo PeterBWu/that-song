@@ -25,11 +25,11 @@ class LandingPage extends Component {
             type="text"
             component="input"
             autoComplete="none"
-            className="p-2 col-10 w-100 search_input searchField text-center"
+            className="pb-3 p-2 col-10 w-100 search_input searchField text-center"
             placeholder="Find That Song!!"
             aria-label="Search"
           />
-          <button className="pb-4 col-2 float-right rounded fa fa-search fa-1x btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"></button>      </form>
+          <button className="pb-4 col-2 float-right rounded  fa-1x btn btn-outline-info my-2 my-sm-0 p-2 searchClick" type="submit"><i className='fa fa-search'></i></button>      </form>
       </div>
     );
   }

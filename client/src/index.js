@@ -10,7 +10,6 @@ import Saved from './containers/Saved';
 import SignUp from './containers/auth/SignUp/SignUp';
 import SignIn from './containers/auth/SignIn';
 import SignOut from './containers/auth/SignOut';
-import Blog from './containers/blogs/Blog';
 import Results from './containers/Results';
 import LandingPage from './containers/LandingPage';
 import SongDetail from './components/SongDetail';
@@ -37,7 +36,6 @@ ReactDOM.render(
                     <Route exact path='/signin' component={SignIn} />
                     <Route exact path='/signout' component={SignOut}/>           
                     <Route exact path='/saved' component={Saved} />   
-                    <Route exact path='/blogs/:blogId' component={Blog}/>
                     <Route exact path='/results' component={Results}/>
                     <Route exact path='/results/:id/:artist/:trackName' component={SongDetail}/>
                     <Route exact path='/profile' component={ProfileHome}/>
